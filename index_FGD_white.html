@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>FLMPI Focus Group Discussion 2026</title>
+<style>
+:root{
+  --bg:#ffffff;
+  --panel:#ffffff;
+  --panel2:#f7f7f8;
+  --panel3:#f0f1f3;
+  --text:#15171b;
+  --muted:#5f6772;
+  --line:rgba(20,24,30,.12);
+  --red:#e51f26;
+  --red2:#c9141b;
+  --gold:#b98700;
+  --green:#1c9b4b;
+  --shadow:0 18px 50px rgba(20,24,30,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#fff;color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  min-height:100vh;
+}
+button,a{font:inherit} a{color:inherit}
+.app{display:grid;grid-template-columns:270px minmax(0,1fr);min-height:100vh}
+.sidebar{
+  position:sticky;top:0;height:100vh;padding:28px 20px;
+  border-right:1px solid var(--line);background:#fff;
+  display:flex;flex-direction:column;z-index:20;
+}
+.brand{display:flex;align-items:center;gap:13px;padding:3px 8px 28px}
+.brand img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto;box-shadow:0 0 0 4px rgba(20,24,30,.04)}
+.brand strong{font-size:17px;letter-spacing:.08em}
+.brand span{display:block;color:var(--red2);font-size:11px;font-weight:800;letter-spacing:.12em;margin-top:3px}
+.side-label{font-size:10px;letter-spacing:.16em;color:#667284;font-weight:800;padding:0 12px;margin:8px 0 10px}
+.nav{display:grid;gap:6px}
+.nav a{
+  display:flex;align-items:center;gap:12px;padding:12px 13px;border-radius:12px;
+  color:#59616d;text-decoration:none;font-size:13px;font-weight:700;transition:.2s
+}
+.nav a:hover,.nav a.active{background:rgba(229,31,38,.08);color:#15171b}
+.nav .ico{width:24px;text-align:center;color:#727b87}
+.side-bottom{margin-top:auto;padding:16px 12px;border:1px solid var(--line);border-radius:14px;background:#f7f7f8}
+.side-bottom small{display:block;color:#697586;font-size:10px;letter-spacing:.1em;font-weight:800;margin-bottom:8px}
+.side-bottom b{font-size:13px;color:#15171b}
+.main{min-width:0}
+.topbar{
+  height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;
+  justify-content:space-between;padding:0 42px;position:sticky;top:0;z-index:15;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px)
+}
+.topbar .title{font-size:12px;color:#68717d;letter-spacing:.08em;font-weight:800}
+.topbar .status{display:flex;align-items:center;gap:9px;font-size:12px;color:#4f5864}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(28,155,75,.45)}
+.content{max-width:1500px;margin:0 auto;padding:42px 42px 70px}
+.hero{
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(320px,.8fr);
+  gap:26px;align-items:stretch;margin-bottom:28px
+}
+.hero-main,.hero-side{
+  border:1px solid var(--line);background:#fff;border-radius:22px;box-shadow:var(--shadow)
+}
+.hero-main{padding:42px 46px;position:relative;overflow:hidden}
+.hero-main:after{
+  content:"";position:absolute;width:360px;height:360px;border-radius:50%;
+  right:-170px;top:-180px;background:radial-gradient(circle,rgba(229,31,38,.12),transparent 68%);pointer-events:none
+}
+.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--red2);font-weight:900}
+h1{font-size:clamp(48px,5vw,82px);line-height:.92;letter-spacing:-.055em;margin:16px 0 20px;max-width:780px}
+.hero-main p{max-width:720px;color:#626b77;line-height:1.75;font-size:15px;margin:0}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.pill{padding:8px 11px;border-radius:999px;background:#f5f6f7;border:1px solid var(--line);font-size:11px;font-weight:800;color:#3f4752}
+.hero-side{padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+.hero-side .mini-logo{width:78px;height:78px;border-radius:50%;object-fit:cover;margin-bottom:20px}
+.hero-side h3{font-size:22px;margin:0 0 9px}
+.hero-side p{color:#626b77;font-size:13px;line-height:1.7;margin:0}
+.section{margin-top:34px;scroll-margin-top:100px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:17px}
+.section-head h2{font-size:27px;letter-spacing:-.025em;margin:4px 0 0}
+.section-head p{margin:0;color:#626b77;font-size:13px;max-width:720px;line-height:1.6}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.info{
+  padding:20px;border:1px solid var(--line);background:#fafafa;border-radius:16px;min-height:150px
+}
+.info .num{font-size:11px;color:#677486;font-weight:900;letter-spacing:.1em}
+.info strong{display:block;font-size:14px;margin:15px 0 8px}
+.info p{color:#626b77;font-size:12px;line-height:1.7;margin:0}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.rule{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fafafa}
+.rule b{font-size:13px}
+.rule p{font-size:12px;color:#626b77;line-height:1.7;margin:7px 0 0}
+.cases{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px}
+.case{
+  min-height:190px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(145deg,#fff,#f3f4f6);position:relative;overflow:hidden;
+  cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s
+}
+.case:hover{transform:translateY(-3px);border-color:rgba(229,31,38,.55);box-shadow:0 15px 35px rgba(20,24,30,.10)}
+.case:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(229,31,38,.06),transparent 45%);pointer-events:none}
+.case-inner{height:100%;padding:19px;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:1}
+.case-top{display:flex;align-items:center;justify-content:space-between}
+.case-num{font-size:34px;font-weight:950;letter-spacing:-.06em;color:#15171b}
+.case-index{font-size:10px;color:#707985;font-weight:900;letter-spacing:.12em}
+.case-title{font-size:13px;line-height:1.45;font-weight:800;max-width:220px;color:#15171b}
+.case-action{font-size:10px;color:#6d7682;font-weight:800;letter-spacing:.08em}
+.case.locked{cursor:not-allowed;opacity:.52;filter:saturate(.5)}
+.case.locked:hover{transform:none;box-shadow:none;border-color:var(--line)}
+.case.locked:after{
+  content:"✓ SUDAH DIPILIH";position:absolute;left:12px;bottom:12px;padding:5px 8px;
+  border-radius:999px;background:rgba(255,255,255,.92);border:1px solid rgba(20,24,30,.12);
+  font-size:9px;font-weight:900;letter-spacing:.08em;color:#555e69
+}
+.selected-note{
+  margin-top:13px;padding:12px 14px;border:1px solid rgba(72,199,116,.14);
+  background:rgba(72,199,116,.06);border-radius:12px;color:#56616d;font-size:12px;line-height:1.6
+}
+.selected-note strong{color:#1c9b4b}
+.footer{
+  margin-top:50px;padding-top:25px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:#687484;font-size:11px
+}
+.modal{
+  position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+  padding:30px;background:rgba(20,24,30,.45);backdrop-filter:blur(8px)
+}
+.modal.show{display:flex}
+.modalbox{
+  width:min(920px,100%);max-height:88vh;overflow:auto;border:1px solid rgba(20,24,30,.12);
+  border-radius:22px;background:#fff;box-shadow:0 30px 90px rgba(20,24,30,.24);padding:30px
+}
+.modal-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px}
+.tag{
+  display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(229,31,38,.08);
+  color:#c9141b;border:1px solid rgba(229,31,38,.18);font-size:10px;font-weight:900;letter-spacing:.1em
+}
+.close{
+  width:38px;height:38px;border:1px solid rgba(20,24,30,.12);border-radius:10px;
+  background:#fff;color:#15171b;font-size:22px;cursor:pointer
+}
+.modal h2{font-size:31px;letter-spacing:-.03em;margin:11px 0 0}
+.modalbox>p{color:#59636f;line-height:1.8;font-size:14px;margin:0 0 20px}
+.confirm-note{
+  padding:14px 16px;border-radius:13px;background:rgba(242,201,76,.07);
+  border:1px solid rgba(185,135,0,.16);color:#5c6672;font-size:12px;line-height:1.7
+}
+.confirm-note strong{color:#987000}
+.q{
+  margin:14px 0;padding:15px 16px;background:#fafafa;border:1px solid var(--line);
+  border-radius:13px;line-height:1.65;color:#4f5864
+}
+.q strong{color:var(--red2)}
+textarea{
+  width:100%;min-height:190px;margin-top:15px;resize:vertical;background:#fff;color:#15171b;
+  border:1px solid rgba(20,24,30,.16);border-radius:14px;padding:15px;font:inherit;outline:none
+}
+textarea:focus{border-color:var(--red)}
+.counter{color:#697586;font-size:.85rem;margin-top:8px}
+.btn{
+  border:0;border-radius:10px;padding:11px 16px;background:var(--red);color:#fff;
+  font-weight:900;font-size:12px;cursor:pointer;margin-top:16px
+}
+.btn:hover{background:#f02a31}
+.btn.secondary{background:#fff;border:1px solid rgba(20,24,30,.16);color:#303741;margin-left:6px}
+.hidden{display:none!important}
+@media(max-width:1250px){
+  .cases{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .rules{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:980px){
+  .app{grid-template-columns:1fr}
+  .sidebar{
+    position:static;height:auto;padding:15px 20px;flex-direction:row;align-items:center;
+    border-right:0;border-bottom:1px solid var(--line)
+  }
+  .brand{padding:0;margin-right:18px}
+  .brand img{width:44px;height:44px}
+  .nav,.side-label,.side-bottom{display:none}
+  .topbar{padding:0 22px}
+  .content{padding:28px 22px 55px}
+  .hero{grid-template-columns:1fr}
+  .hero-side{min-height:210px}
+  .cases{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .grid4,.rules,.cases{grid-template-columns:1fr 1fr}
+  .hero-main{padding:30px 25px}
+  h1{font-size:48px}
+  .section-head{display:block}
+  .section-head p{margin-top:7px}
+  .footer{display:block;line-height:1.8}
+}
+@media(max-width:480px){
+  .grid4,.rules,.cases{grid-template-columns:1fr}
+  .topbar .title{display:none}
+  .topbar{justify-content:flex-end}
+  .content{padding:22px 15px 45px}
+  .hero-main{padding:25px 20px}
+  .modal{padding:12px}
+  .modalbox{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="logo-flmpi.png" alt="Logo FLMPI">
+      <div><strong>FLMPI</strong><span>FGD 2026</span></div>
+    </div>
+
+    <div class="side-label">NAVIGATION</div>
+    <nav class="nav">
+      <a class="active" href="#home"><span class="ico">⌂</span>Overview</a>
+      <a href="#about"><span class="ico">◈</span>About FGD</a>
+      <a href="#rules"><span class="ico">▣</span>Ketentuan</a>
+      <a href="#cases"><span class="ico">◆</span>Studi Kasus</a>
+      <a href="#tips"><span class="ico">✦</span>Tips Menjawab</a>
+    </nav>
+
+    <div class="side-bottom">
+      <small>ORGANISASI</small>
+      <b>Forum Lembaga Mahasiswa Perindustrian Indonesia</b>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="title">OPEN RECRUITMENT / FOCUS GROUP DISCUSSION</div>
+      <div class="status"><span class="dot"></span> Sistem siap digunakan</div>
+    </header>
+
+    <div class="content">
+      <section class="hero" id="home">
+        <div class="hero-main">
+          <div class="eyebrow">FLMPI • OPEN RECRUITMENT 2026</div>
+          <h1>10 CASES.<br>1 MINDSET.</h1>
+          <p>Selamat datang di Focus Group Discussion. Bukan sekadar mencari jawaban paling benar, tetapi melihat bagaimana kamu memahami masalah, membangun argumentasi, dan menawarkan solusi.</p>
+          <div class="hero-meta">
+            <span class="pill">10 Studi Kasus</span>
+            <span class="pill">45 Menit</span>
+            <span class="pill">Diskusi Kelompok</span>
+            <span class="pill">Solusi Konsensus</span>
+          </div>
+        </div>
+        <div class="hero-side">
+          <img class="mini-logo" src="logo-flmpi.png" alt="Logo FLMPI">
+          <div>
+            <h3>Think beyond the obvious.</h3>
+            <p>FGD menguji cara berpikir, komunikasi, analisis masalah, kemampuan membangun argumen, serta kemampuan kelompok menghasilkan keputusan yang dapat dipertanggungjawabkan.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-head">
+          <div><div class="eyebrow">01 — UNDERSTAND</div><h2>Apa itu FGD?</h2></div>
+          <p>FGD digunakan untuk melihat cara peserta memahami persoalan, mempertimbangkan sudut pandang yang berbeda, dan membangun solusi bersama.</p>
+        </div>
+        <div class="grid4">
+          <div class="info"><span class="num">STEP 01</span><strong>Baca kasus</strong><p>Pahami konteks dan persoalan sebelum menentukan jawaban.</p></div>
+          <div class="info"><span class="num">STEP 02</span><strong>Analisis</strong><p>Identifikasi masalah utama, penyebab, dampak, dan pihak yang terlibat.</p></div>
+          <div class="info"><span class="num">STEP 03</span><strong>Bangun argumen</strong><p>Jelaskan pendapat dengan alasan yang logis dan relevan.</p></div>
+          <div class="info"><span class="num">STEP 04</span><strong>Tawarkan solusi</strong><p>Berikan solusi yang realistis, bukan hanya ideal di atas kertas.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="rules">
+        <div class="section-head">
+          <div><div class="eyebrow">02 — RULES</div><h2>Ketentuan Focus Group Discussion</h2></div>
+          <p>FGD tidak mencari peserta yang paling banyak berbicara, melainkan kemampuan memahami persoalan dan membangun keputusan bersama.</p>
+        </div>
+        <div class="rules">
+          <div class="rule"><b>01 — Durasi</b><p>45 menit: 10 menit analisis kasus • 30 menit diskusi • 5 menit kesimpulan.</p></div>
+          <div class="rule"><b>02 — Target</b><p>Satu solusi konsensus kelompok yang dapat dipertanggungjawabkan.</p></div>
+          <div class="rule"><b>03 — Larangan</b><p>Mendominasi percakapan secara sepihak atau memaksakan pendapat tanpa mempertimbangkan anggota lain.</p></div>
+          <div class="rule"><b>04 — Prinsip diskusi</b><p>Berbeda pendapat diperbolehkan. Setiap pendapat harus memiliki alasan dan diarahkan pada keputusan kelompok.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="cases">
+        <div class="section-head">
+          <div><div class="eyebrow">03 — ANALYZE</div><h2>Pilih satu studi kasus</h2></div>
+          <p>Klik kartu untuk membuka studi kasus. Setiap kasus berisi konflik kepentingan dan keterbatasan nyata yang membutuhkan keputusan.</p>
+        </div>
+
+        <div class="selected-note">
+          <strong><span id="selectedCount">0</span> / 10</strong> studi kasus sudah dipilih. Setelah dikonfirmasi, satu kasus tidak dapat dibuka kembali.
+        </div>
+
+        <div class="cases" style="margin-top:14px">
+          <div class="case" onclick="openCase(1)"><div class="case-inner"><div class="case-top"><span class="case-num">01</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 01</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+          <div class="case" onclick="openCase(2)"><div class="case-inner"><div class="case-top"><span class="case-num">02</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 02</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+          <div class="case" onclick="openCase(3)"><div class="case-inner"><div class="case-top"><span class="case-num">03</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 03</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+          <div class="case" onclick="openCase(4)"><div class="case-inner"><div class="case-top"><span class="case-num">04</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 04</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+          <div class="case" onclick="openCase(5)"><div class="case-inner"><div class="case-top"><span class="case-num">05</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 05</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+          <div class="case" onclick="openCase(6)"><div class="case-inner"><div class="case-top"><span class="case-num">06</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 06</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+          <div class="case" onclick="openCase(7)"><div class="case-inner"><div class="case-top"><span class="case-num">07</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 07</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+          <div class="case" onclick="openCase(8)"><div class="case-inner"><div class="case-top"><span class="case-num">08</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 08</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+          <div class="case" onclick="openCase(9)"><div class="case-inner"><div class="case-top"><span class="case-num">09</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 09</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+          <div class="case" onclick="openCase(10)"><div class="case-inner"><div class="case-top"><span class="case-num">10</span><span class="case-index">CASE</span></div><div class="case-title">STUDI KASUS 10</div><div class="case-action">KLIK UNTUK MEMBUKA →</div></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="tips">
+        <div class="section-head">
+          <div><div class="eyebrow">04 — RESPOND</div><h2>Tips sebelum menjawab</h2></div>
+          <p>Gunakan struktur berpikir yang jelas dan tetap tunjukkan cara berpikirmu sendiri.</p>
+        </div>
+        <div class="grid4">
+          <div class="info"><span class="num">01</span><strong>Think critically</strong><p>Jangan berhenti pada gejala. Cari akar masalahnya.</p></div>
+          <div class="info"><span class="num">02</span><strong>Be realistic</strong><p>Pertimbangkan sumber daya, waktu, risiko, dan pihak yang terdampak.</p></div>
+          <div class="info"><span class="num">03</span><strong>Be structured</strong><p>Gunakan alur masalah → analisis → solusi → implementasi.</p></div>
+          <div class="info"><span class="num">04</span><strong>Be yourself</strong><p>Tidak ada jawaban yang harus terdengar sempurna. Tunjukkan cara berpikirmu.</p></div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>FLMPI • Open Recruitment 2026</span>
+        <span>Focus Group Discussion • Think beyond the obvious.</span>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modalbox">
+    <div class="modal-head">
+      <div><span class="tag" id="caseTag">CASE 01</span><h2 id="caseTitle">Studi Kasus</h2></div>
+      <button class="close" onclick="closeCase()" aria-label="Tutup">×</button>
+    </div>
+    <p id="caseText"></p>
+    <div id="confirmArea">
+      <div class="confirm-note">Kamu dapat membaca studi kasus terlebih dahulu. Studi kasus baru akan dianggap dipilih setelah kamu menekan tombol <strong>Mulai Case Ini</strong>.</div>
+      <button class="btn" onclick="confirmCase()">Mulai Case Ini</button>
+      <button class="btn secondary" onclick="closeCase()">Kembali</button>
+    </div>
+    <div id="workArea" style="display:none">
+      <div id="questionList"></div>
+      <textarea id="answer" placeholder="Tulis hasil analisis kelompok di sini..."></textarea>
+      <div class="counter" id="counter">0 karakter</div>
+      <button class="btn" onclick="saveAnswer()">Simpan Jawaban</button>
+      <button class="btn secondary" onclick="closeCase()">Kembali</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const cases = const cases = [
+ {title:"Kaderisasi: Banyak Masuk, Sedikit Bertahan", text:"Jumlah anggota baru organisasi naik signifikan. Namun setelah tiga bulan, sebagian besar tidak lagi aktif. Pengurus lama menyebut masalahnya adalah komitmen anggota baru. Anggota baru justru merasa hanya diberi tugas teknis, tidak memahami arah organisasi, dan tidak melihat ruang untuk berkembang. Pengurus hanya memiliki enam bulan sebelum regenerasi.", q:["Apa persoalan yang paling perlu diprioritaskan: komitmen anggota, desain kaderisasi, atau pola kepemimpinan? Jelaskan alasan kelompok.","Jika hanya boleh menjalankan satu perubahan utama dalam enam bulan, keputusan apa yang dipilih dan apa trade-off-nya?","Rumuskan solusi konsensus serta dua langkah implementasi yang paling realistis."]},
+ {title:"Efisiensi: Aspirasi Kampus vs Keputusan Pusat", text:"Dalam sebuah organisasi lintas kampus, beberapa kampus mengusulkan program yang dianggap penting untuk kebutuhan internal. Namun pengurus pusat memutuskan penyederhanaan agenda dengan alasan keterbatasan anggaran dan efisiensi. Perwakilan kampus merasa aspirasi mereka tidak benar-benar dipertimbangkan. Jika konflik terbuka, koordinasi nasional berisiko terganggu.", q:["Bagaimana kelompok menentukan apakah keputusan pusat merupakan bentuk efisiensi yang wajar atau masalah representasi?","Apa sikap yang sebaiknya diambil perwakilan kampus tanpa mengorbankan hubungan organisasi secara keseluruhan?","Bangun satu mekanisme solusi yang menjaga efisiensi sekaligus memastikan aspirasi tetap memiliki jalur pengambilan keputusan."]},
+ {title:"Konflik Biro: Program Berhasil, Tim Retak", text:"Dua biro berhasil menyelesaikan sebuah program besar, tetapi prosesnya penuh konflik. Biro A merasa mengambil sebagian besar beban kerja, sedangkan Biro B merasa sejak awal tidak dilibatkan dalam keputusan penting. Ketua ingin masalah segera ditutup karena program dinilai sukses. Jika dibiarkan, konflik berpotensi muncul lagi pada program berikutnya.", q:["Apakah evaluasi harus berfokus pada hasil program atau proses kerja tim? Tentukan prioritas dan alasannya.","Jika kamu menjadi pengurus inti, intervensi apa yang dilakukan tanpa mencari siapa yang harus disalahkan?","Tentukan satu perubahan sistem kerja yang dapat mencegah konflik serupa terulang."]},
+ {title:"Inovasi: Ide Besar dengan Risiko Besar", text:"Seorang pengurus mengusulkan program baru yang belum pernah dilakukan organisasi. Konsepnya berpotensi menjadi identitas baru organisasi, tetapi membutuhkan kemampuan teknis, waktu, dan koordinasi yang belum dimiliki tim. Sebagian pengurus ingin langsung mencoba karena kesempatan jarang datang. Sebagian lain memilih program lama yang lebih aman.", q:["Bagaimana kelompok menilai apakah ide tersebut layak diuji tanpa terjebak pada 'inovasi demi inovasi'?","Jika sumber daya hanya cukup untuk menjalankan versi kecil dari ide tersebut, bagian mana yang dipertahankan dan mana yang dikorbankan?","Buat keputusan konsensus: lanjut, modifikasi, atau tunda. Sertakan alasan dan batas keberhasilannya."]},
+ {title:"Krisis Kepercayaan: Kesalahan Informasi", text:"Panitia terlambat menyampaikan perubahan penting terkait sebuah kegiatan. Beberapa peserta merasa dirugikan dan mulai mempertanyakan profesionalitas organisasi. Sebagian panitia ingin segera membuat klarifikasi publik, sementara yang lain khawatir klarifikasi justru memperbesar masalah. Waktu persiapan acara berikutnya juga sangat terbatas.", q:["Apa yang harus diprioritaskan terlebih dahulu: memperbaiki dampak kepada peserta atau menjaga citra organisasi? Jelaskan hubungan keduanya.","Bagaimana bentuk respons yang transparan tetapi tidak membuat organisasi terlihat defensif atau mencari alasan?","Tentukan satu langkah pemulihan kepercayaan yang dapat dilakukan segera dan satu perubahan sistem untuk mencegah pengulangan."]},
+ {title:"Anggaran: Program Besar atau Dampak Nyata", text:"Organisasi memiliki anggaran terbatas. Ada dua pilihan: mempertahankan acara besar yang menjangkau banyak peserta tetapi kualitas interaksi rendah, atau mengubahnya menjadi program lebih kecil dengan peserta lebih sedikit namun dampaknya lebih terukur. Kedua kubu memiliki argumen yang sama-sama kuat.", q:["Apa ukuran keberhasilan yang seharusnya digunakan sebelum memilih salah satu opsi?","Jika kelompok harus mengorbankan salah satu aspek—jangkauan, kualitas, atau citra—mana yang paling rasional untuk dikorbankan dan mengapa?","Ambil satu keputusan dan jelaskan bagaimana kelompok mempertanggungjawabkannya kepada pihak yang tidak setuju."]},
+ {title:"Regenerasi: Organisasi Bergantung pada Satu Orang", text:"Sebuah program berjalan sangat baik karena ada satu pengurus yang menguasai hampir seluruh teknisnya. Masalah muncul ketika orang tersebut akan segera selesai masa kepengurusannya. Jika tanggung jawab langsung dialihkan, kualitas program mungkin turun. Jika tetap bergantung pada orang tersebut, regenerasi tidak terjadi.", q:["Mana yang harus diprioritaskan: mempertahankan kualitas jangka pendek atau membangun kemandirian tim?","Bagaimana melakukan transfer pengetahuan tanpa menjadikan pengurus lama tetap menjadi pusat keputusan?","Rancang satu skema transisi yang realistis untuk satu periode kepengurusan."]},
+ {title:"Partisipasi: Aktif Bukan Berarti Hadir", text:"Kegiatan organisasi selalu memenuhi target jumlah peserta, tetapi diskusi didominasi orang yang sama. Anggota lain hadir secara administratif namun jarang menyampaikan pendapat. Pengurus mempertimbangkan sistem wajib berbicara agar forum lebih hidup, tetapi sebagian anggota menilai cara tersebut justru membuat ruang diskusi tidak aman.", q:["Apakah masalah utamanya jumlah partisipasi atau kualitas ruang partisipasi? Pilih dan jelaskan.","Apa mekanisme yang dapat mendorong anggota berkontribusi tanpa memaksa mereka tampil dengan cara yang sama?","Tentukan satu perubahan format forum dan jelaskan bagaimana mengukur apakah perubahan tersebut berhasil."]},
+ {title:"Komunikasi Publik: Cepat atau Akurat", text:"Organisasi menghadapi isu yang sedang ramai diperbincangkan mahasiswa. Publik meminta respons cepat. Namun informasi internal belum sepenuhnya terverifikasi. Jika menunggu terlalu lama, organisasi dianggap tidak responsif. Jika berbicara terlalu cepat, ada risiko informasi keliru dan reputasi organisasi terdampak.", q:["Apa batas informasi yang boleh disampaikan sebelum seluruh fakta terverifikasi?","Bagaimana kelompok menyeimbangkan kecepatan respons dengan akurasi dan tanggung jawab organisasi?","Susun keputusan komunikasi paling aman tetapi tetap menunjukkan bahwa organisasi hadir dan responsif."]},
+ {title:"Evaluasi: Ramai Belum Tentu Berhasil", text:"Sebuah program dianggap sukses karena peserta mencapai target dan dokumentasi media sosial mendapat banyak respons. Namun tujuan utamanya adalah meningkatkan kemampuan anggota dan membangun jejaring antarkampus. Setelah kegiatan, tidak ada data yang menunjukkan apakah kedua tujuan tersebut benar-benar tercapai. Pengurus harus menentukan apakah program ini layak dipertahankan.", q:["Apa yang harus dianggap sebagai bukti keberhasilan: jumlah peserta, engagement, perubahan kemampuan, atau dampak lanjutan? Tentukan prioritas.","Jika data pascakegiatan sangat terbatas, bagaimana kelompok membuat keputusan tanpa sekadar menebak?","Tentukan apakah program dipertahankan, diperbaiki, atau dihentikan, beserta dasar keputusan kelompok."]}
+];;
+
+let activeCase = 0;
+const modal = document.getElementById("modal");
+const answer = document.getElementById("answer");
+const CONFIRMED_KEY = "flmpi_confirmed_cases_2026";
+
+function getConfirmedCases(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(CONFIRMED_KEY) || "[]");
+    return Array.isArray(saved) ? saved.map(Number) : [];
+  }catch(e){ return []; }
+}
+function isConfirmed(i){ return getConfirmedCases().includes(i); }
+
+function migrateOldCaseStorage(){
+  const marker = "flmpi_case_index_migrated_v2";
+  if(localStorage.getItem(marker)) return;
+  try{
+    const oldConfirmed = JSON.parse(localStorage.getItem(CONFIRMED_KEY) || "[]");
+    if(Array.isArray(oldConfirmed)){
+      const migrated = [...new Set(oldConfirmed.map(Number).filter(n => n >= 1 && n <= cases.length).map(n => n - 1))];
+      localStorage.setItem(CONFIRMED_KEY, JSON.stringify(migrated));
+    }
+    for(let n=1;n<=cases.length;n++){
+      const oldKey = "flmpi_answer_"+n;
+      const newKey = "flmpi_answer_"+(n-1);
+      const oldValue = localStorage.getItem(oldKey);
+      if(oldValue !== null && localStorage.getItem(newKey) === null){
+        localStorage.setItem(newKey, oldValue);
+      }
+    }
+  }catch(e){}
+  localStorage.setItem(marker,"1");
+}
+
+function refreshCaseLocks(){
+  const confirmed = getConfirmedCases();
+  document.querySelectorAll(".case").forEach((card,index)=>{
+    const isLocked = confirmed.includes(index);
+    card.classList.toggle("locked", isLocked);
+    card.setAttribute("aria-disabled", isLocked ? "true" : "false");
+    card.title = isLocked ? "Studi kasus ini sudah dikonfirmasi dan tidak dapat dibuka kembali." : "Klik untuk melihat studi kasus";
+  });
+  const count = document.getElementById("selectedCount");
+  if(count) count.textContent = confirmed.length;
+}
+
+function openCase(cardNumber){
+  const i = cardNumber - 1;
+  if(i < 0 || i >= cases.length) return;
+  if(isConfirmed(i)){
+    alert("Studi kasus ini sudah dikonfirmasi dan tidak dapat dibuka kembali. Kamu masih dapat memilih studi kasus lainnya.");
+    return;
+  }
+  activeCase = i;
+  document.getElementById("caseTag").textContent="CASE "+String(i+1).padStart(2,"0");
+  document.getElementById("caseTitle").textContent=cases[i].title;
+  document.getElementById("caseText").textContent=cases[i].text;
+  document.getElementById("questionList").innerHTML=cases[i].q.map((item,n)=>`<div class="q"><strong>${n+1}.</strong> ${item}</div>`).join("");
+  answer.value=localStorage.getItem("flmpi_answer_"+i) || "";
+  updateCounter();
+  document.getElementById("confirmArea").style.display="block";
+  document.getElementById("workArea").style.display="none";
+  modal.classList.add("show");
+}
+function confirmCase(){
+  if(isConfirmed(activeCase)) return;
+  const confirmed = getConfirmedCases();
+  confirmed.push(activeCase);
+  localStorage.setItem(CONFIRMED_KEY, JSON.stringify(confirmed));
+  refreshCaseLocks();
+  document.getElementById("confirmArea").style.display="none";
+  document.getElementById("workArea").style.display="block";
+}
+function closeCase(){modal.classList.remove("show")}
+function saveAnswer(){
+  if(!isConfirmed(activeCase)){
+    alert("Silakan tekan 'Mulai Case Ini' terlebih dahulu.");
+    return;
+  }
+  localStorage.setItem("flmpi_answer_"+activeCase,answer.value);
+  alert("Jawaban tersimpan di perangkat ini.");
+}
+function updateCounter(){document.getElementById("counter").textContent=answer.value.length+" karakter"}
+answer.addEventListener("input",updateCounter);
+modal.addEventListener("click",e=>{if(e.target===modal)closeCase()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCase()});
+migrateOldCaseStorage();
+refreshCaseLocks();
+</script>
+</body>
+</html>
